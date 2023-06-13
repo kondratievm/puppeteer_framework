@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "sourceMap": true,
+    "outDir": "built",
+    "types": ["node", "@types/mocha", "@types/chai"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["lib/**/*.ts", "specs/**/*.ts", "framework/**/*.ts"],
+  "exclude": ["node_modules"]
+}
