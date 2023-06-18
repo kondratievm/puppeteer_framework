@@ -1,3 +1,4 @@
+// // Названия шагов выполения теста (консоль)
 function stepConsole(stepName: string | Function) {
   return function (_target, propName, descriptor) {
     const originalMethod = descriptor.value;

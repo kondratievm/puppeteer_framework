@@ -30,14 +30,17 @@ class BaseElement {
     return this.name;
   }
 
+  // Инициализация страницы
   initPage(page) {
     this.page = page;
   }
 
+  // Инициализация элемента со страницы
   private async initElement() {
     this.currentElement = await this.page.$(this.selector);
   }
 
+  // Заполение строк в полях
   @step((name) => `${name} call send keys`)
   async sendKeys(value: string) {
     if (!this.currentElement) {
@@ -47,6 +50,7 @@ class BaseElement {
     await this.currentElement.type(value);
   }
 
+  // Клик по элементу
   @step((name) => `${name} call click`)
   async click() {
     if (!this.currentElement) {
@@ -57,6 +61,7 @@ class BaseElement {
   }
 }
 
+// Получение селектора элемента
 function _$(selector: string, name?: string): BaseElement {
   return new BaseElement({ selector, name });
 }

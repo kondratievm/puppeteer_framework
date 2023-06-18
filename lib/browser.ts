@@ -16,6 +16,7 @@ class BrowserAdapter {
 
   constructor() {}
 
+  // Получение страницы
   async initCurrentPage() {
     this.browser = await puppeteer.launch(browserLaunchOptions);
     this.currentPage = await this.browser.newPage();
@@ -23,6 +24,7 @@ class BrowserAdapter {
     publishsubscribe.publish(messagesList.currentPage, this.currentPage);
   }
 
+  // Переход на страницу
   async goto(url: string) {
     if (!this.currentPage) {
       await this.initCurrentPage();
@@ -31,12 +33,14 @@ class BrowserAdapter {
     await this.currentPage.goto(url);
   }
 
+  // Закрытие браузера
   async close() {
     await this.browser.close();
 
     publishsubscribe.publish(messagesList.closeBrowser, this.currentPage);
   }
 
+  // Таймаут функция
   async sleep(time = 1000) {
     await (() => new Promise((res) => setTimeout(res, time)))();
   }

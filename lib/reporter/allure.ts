@@ -1,5 +1,6 @@
 declare const allure: any;
 
+// Названия шагов выполения теста
 function stepAllure(stepName: string | Function) {
   return function (_target, propName, descriptor) {
     const originalMethod = descriptor.value;

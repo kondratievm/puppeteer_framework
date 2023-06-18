@@ -12,6 +12,7 @@ class MainPage extends BasePage {
   constructor() {
     super(".auth-wrapper", "Main Page");
 
+    // locators
     this.userName = _$(userNameSelector, "User name field");
     this.password = _$(userPasswordSelector, "User password field");
     this.signInBtn = _$(signInBtnSelector, "Sign In button");

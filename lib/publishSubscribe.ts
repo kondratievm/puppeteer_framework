@@ -6,6 +6,7 @@ const messagesList = {
 function publishSubscribe() {
   const handlers = {};
 
+  // Добавление данных в ответ на событие
   function publish(msgName: string, data: any) {
     if (!handlers[msgName]) {
       return;
@@ -16,6 +17,7 @@ function publishSubscribe() {
     });
   }
 
+  // Функция подписки на событие/уведомление
   function subscribe(msgName: string, handler: Function) {
     if (!handlers[msgName]) {
       handlers[msgName] = [];
